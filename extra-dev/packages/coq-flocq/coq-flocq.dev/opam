@@ -4,11 +4,9 @@ homepage: "http://flocq.gforge.inria.fr/"
 dev-repo: "git+https://scm.gforge.inria.fr/anonscm/git/flocq/flocq.git"
 license: "LGPL 3"
 build: [
-  ["./autogen.sh"]
-  ["./configure"]
-  ["./remake" "-j%{jobs}%"]
+  ["make" "-j%{jobs}%"]
 ]
-install: ["./remake" "install"]
+install: ["make" "install"]
 remove: ["rm" "-R" "%{lib}%/coq/user-contrib/Flocq"]
 depends: [
   "ocaml"
@@ -19,5 +17,5 @@ authors: [ "Sylvie Boldo <sylvie.boldo@inria.fr>" "Guillaume Melquiond <guillaum
 synopsis: "A floating-point formalization for the Coq system."
 flags: light-uninstall
 url {
-  src: "git+https://gitlab.inria.fr/flocq/flocq.git#master"
+  src: "git+https://gitlab.inria.fr/pedrot/flocq.git#coq-makefile"
 }

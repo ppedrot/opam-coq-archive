@@ -9,9 +9,10 @@ homepage: "https://github.com/mit-plv/bedrock2"
 bug-reports: "https://github.com/mit-plv/bedrock2/issues"
 license: "MIT"
 build: [
-  [make "-j%{jobs}%" "EXTERNAL_DEPENDENCIES=1" "bedrock2_ex"]
+  ["git" "submodule" "update" "--init" "--recursive"]
+  [make "-j%{jobs}%"]
 ]
-install: [make "EXTERNAL_DEPENDENCIES=1" "install_bedrock2"]
+install: [make "install"]
 depends: [
   "coq" {>= "8.9~"}
   "coq-coqutil"
